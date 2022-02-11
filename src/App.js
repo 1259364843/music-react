@@ -1,12 +1,11 @@
+import React, { memo } from 'react'
 
-import './App.css';
-
-function App() {
+const App = memo(() => {
   return (
-    <div className="App">
-    App
+    <div>
+      <h2>App</h2>
     </div>
-  );
-}
+  )
+})
 
-export default App;
+export default App
