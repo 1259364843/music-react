@@ -12,6 +12,7 @@ import Djradio from "@/pages/discover/c-pages/djradio";
 import Artist from "@/pages/discover/c-pages/artist";
 import Album from "@/pages/discover/c-pages/album";
 
+
 const routes = [
   {
     path: "/",
@@ -23,6 +24,13 @@ const routes = [
     component: Discover,
     // 子路由
     routes: [
+      {
+        path: "/discover",
+        exact: true,
+        render: () => (
+          <Redirect to="/discover/recommend"/>
+        )
+      },
       {
         path: "/discover/recommend",
         component: Recommend

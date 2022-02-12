@@ -2,6 +2,9 @@ import React, { memo } from "react";
 
 // 子组件
 import TopBanner from "./c-cpns/top-banner";
+import HotRecommend from "./c-cpns/hot-recommend";
+import NewAlbum from "./c-cpns/new-album";
+import RecommendRanking from "./c-cpns/recommend-ranking";
 // 样式
 import { 
   RecommendWrapper,
@@ -13,7 +16,17 @@ function Recommend(props) {
 
   return (
     <RecommendWrapper>
+      { /*轮播图*/ }
       <TopBanner />
+      <Content className="wrap-v2">
+        <RecommendLeft>
+          {/*热门推荐*/}
+          <HotRecommend />
+          <NewAlbum />
+          <RecommendRanking />
+        </RecommendLeft>
+        <RecommendRight></RecommendRight>
+      </Content>
     </RecommendWrapper>
   );
 }
