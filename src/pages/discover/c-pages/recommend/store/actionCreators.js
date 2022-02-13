@@ -7,7 +7,8 @@ import * as actionTypes from './constants';
 import { 
   getTopBanners,
   getHotRecommends,
-  getNewAlbums
+  getNewAlbums,
+  getTopList
 } from '@/services/recommend';
 
 // 改变state数据的action
@@ -22,6 +23,21 @@ const changeHotRecommendAction = (res) => ({
 const changeNewAlbumAction = (res) => ({
   type: actionTypes.CHANGE_NEW_ALBUM,
   newAlbums: res.albums
+})
+// 飙升榜
+const changeUpRankingAction = (res) => ({
+  type: actionTypes.CHANGE_UP_RANKING,
+  upRanking: res.playlist
+})
+// 新歌榜
+const changeNewRankingAction = (res) => ({
+  type: actionTypes.CHANGE_NEW_RANKING,
+  newRanking: res.playlist
+})
+// 原创榜
+const changeOriginRankingAction = (res) => ({
+  type: actionTypes.CHANGE_ORIGIN_RANKING,
+  originRanking: res.playlist
 })
 /**
  * Action本身是一个函数
@@ -51,3 +67,22 @@ export const getNewAlbumAction = (limit) => {
   }
 }
 
+// 根据idx区分不同榜单数据
+export const getTopListAction = (idx) => {
+  return dispatch => {
+    getTopList(idx).then(res => {
+      switch (idx) {
+        case 0:
+          dispatch(changeUpRankingAction(res));
+          break;
+        case 2:
+          dispatch(changeNewRankingAction(res));
+          break;
+        case 3:
+          dispatch(changeOriginRankingAction(res));
+          break;
+        default:
+      }
+    });
+  }
+}
