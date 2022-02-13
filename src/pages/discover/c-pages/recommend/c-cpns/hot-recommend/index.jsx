@@ -6,6 +6,7 @@ import { HOT_RECOMMEND_LIMIT } from "@/common/constants";
 // 组件
 import ThemeHeaderRcm from "@/components/theme-header-rcm";
 import SongsCover from "@/components/songs-cover";
+// redux action
 import { getHotRecommendAction } from "../../store/actionCreators.js";
 
 // 样式
@@ -14,7 +15,7 @@ export default memo(function HotRecommend() {
   // redux hooks
   const { hotRecommends } = useSelector(
     (state) => ({
-      hotRecommends: state.getIn(["recommend", "hotRecommends"]),
+      hotRecommends: state.getIn(["recommend", "hotRecommends"])
     }),
     shallowEqual
   );
