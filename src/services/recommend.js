@@ -7,4 +7,13 @@ export function getTopBanners() {
     url: "/banner"
   })
 }
-
+// 2.获取推荐歌单
+// limit:限制条数
+export function getHotRecommends(limit) {
+  return request({
+    url: "/personalized",
+    params: {
+      limit
+    }
+  })
+}

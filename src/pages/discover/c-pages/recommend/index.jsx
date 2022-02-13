@@ -22,7 +22,9 @@ function Recommend(props) {
         <RecommendLeft>
           {/*热门推荐*/}
           <HotRecommend />
+          {/*新碟上架*/}
           <NewAlbum />
+          {/*推荐榜单*/}
           <RecommendRanking />
         </RecommendLeft>
         <RecommendRight></RecommendRight>
